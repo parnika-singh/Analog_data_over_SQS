@@ -1,0 +1,1 @@
+objective: to send analog data to sqs through esp32 using AWS IoT Core.
