@@ -20,14 +20,18 @@ void connectWiFi() {
     retries++;
 
     if (retries > 20) {
-      Serial.println("\n❌ WiFi connection failed!");
-      return;
+      Serial.println("\n❌ WiFi Failed!");
+      Serial.print("Status code: ");
+      Serial.println(WiFi.status());
+      break;
     }
   }
 
-  Serial.println("\n✅ WiFi Connected!");
-  Serial.print("IP Address: ");
-  Serial.println(WiFi.localIP());
+  if (WiFi.status() == WL_CONNECTED) {
+    Serial.println("\n✅ WiFi Connected!");
+    Serial.print("IP: ");
+    Serial.println(WiFi.localIP());
+  }
 }
 
 void connectAWS() {
